@@ -1,0 +1,27 @@
+{
+  "name": "pclient",
+  "version": "1.0.0",
+  "description": "A testable http client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc -c ./jsdoc.conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poo-kie/PClient.git"
+  },
+  "keywords": [
+    "http",
+    "client"
+  ],
+  "author": "James McBride",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Poo-kie/PClient/issues"
+  },
+  "homepage": "https://github.com/Poo-kie/PClient#readme",
+  "devDependencies": {
+    "jsdoc-export-default-interop": "^0.3.1"
+  }
+}

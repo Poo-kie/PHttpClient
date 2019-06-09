@@ -1,0 +1,29 @@
+{
+  "name": "phttpclient-tests",
+  "version": "1.0.0",
+  "description": "tests for PHttpClient",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "./*[Tt]ests.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  },
+  "keywords": [
+    "PHttpClient",
+    "tests"
+  ],
+  "author": "James McBride",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "ava": "^1.4.1"
+  }
+}
