@@ -1,2 +1,2 @@
 # PClient
-A testable, performant HTTP client in javascript
+A testable, documented HTTP client written in ES6
