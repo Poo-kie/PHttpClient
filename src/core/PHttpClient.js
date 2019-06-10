@@ -1,4 +1,6 @@
 import PHttpRequestOptions from './PHttpRequestOptions'
+import PHttpRequestProvider from './PHttpRequestProvider'
+import PHttpRequest from './PHttpRequest'
 
 /**
  * @class
@@ -21,7 +23,7 @@ export default class PHttpClient {
          * @method
          * @param {string} url The URL for the GET request
          * @param {number?} timeout The timeout in ms after which the request will be rejected
-         * @returns {PHttpResponse}
+         * @returns {Promise<PHttpResponse>}
          */
         this.get = (url, timeout) => {
             let options = new PHttpRequestOptions();
@@ -29,7 +31,8 @@ export default class PHttpClient {
             options.timeout = timeout;
 
             return new Promise((resolve, reject) => {
-                this.requestProvider.get(options, resolve, reject);
+                let request = this.requestProvider.get(options, resolve, reject);
+                request.send(options);
             });
         };
     }

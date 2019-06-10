@@ -1,4 +1,4 @@
-import {PHttpRequestProvider, PHttpRequest} from 'core/index.js'
+import { PHttpRequestProvider, PHttpRequest } from '../core/index.js'
 
 /**
  * @class

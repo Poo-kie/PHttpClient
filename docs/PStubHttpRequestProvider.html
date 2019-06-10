@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: PXMLHttpRequest</title>
+    <title>JSDoc: Class: PStubHttpRequestProvider</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: PXMLHttpRequest</h1>
+    <h1 class="page-title">Class: PStubHttpRequestProvider</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PXMLHttpRequest<span class="signature">(request)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PStubHttpRequestProvider<span class="signature">(response<span class="signature-attributes">nullable</span>, isRejected)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,167 +41,7 @@
     
 
     
-    <h4 class="name" id="PXMLHttpRequest"><span class="type-signature"></span>new PXMLHttpRequest<span class="signature">(request)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>request</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">XMLHttpRequest</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the request to send</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line48">line 48</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="PXMLHttpRequest.html">PXMLHttpRequest</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(options, data<span class="signature-attributes">nullable</span>)</span><span class="type-signature"> &rarr; {<a href="PHttpResponse.html">PHttpResponse</a>}</span></h4>
+    <h4 class="name" id="PStubHttpRequestProvider"><span class="type-signature"></span>new PStubHttpRequestProvider<span class="signature">(response<span class="signature-attributes">nullable</span>, isRejected)</span><span class="type-signature"></span></h4>
     
 
     
@@ -243,44 +83,13 @@
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>response</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="PHttpRequestOptions.html">PHttpRequestOptions</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>options for the request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">any</span>
+<span class="param-type"><a href="PHttpResponse.html">PHttpResponse</a></span>
 
 
             
@@ -300,7 +109,38 @@
 
             
 
-            <td class="description last"><p>data to send with the request</p></td>
+            <td class="description last"><p>(optional) a response to return from the client</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isRejected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -341,7 +181,206 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line61">line 61</a>
+        <a href="requestProviders_PStubHttpRequestProvider.js.html">requestProviders/PStubHttpRequestProvider.js</a>, <a href="requestProviders_PStubHttpRequestProvider.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(options, resolve, reject)</span><span class="type-signature"> &rarr; {<a href="PHttpRequest.html">PHttpRequest</a>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="PHttpRequestOptions.html">PHttpRequestOptions</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Options for the request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resolve</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback used to resolve the request promise</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback used to reject the request promise</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="requestProviders_PStubHttpRequestProvider.js.html">requestProviders/PStubHttpRequestProvider.js</a>, <a href="requestProviders_PStubHttpRequestProvider.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -377,7 +416,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="PHttpResponse.html">PHttpResponse</a></span>
+<span class="param-type"><a href="PHttpRequest.html">PHttpRequest</a></span>
 
 
     </dd>
