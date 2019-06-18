@@ -11,7 +11,7 @@ test('GET request should be resolved when stub provider is used with empty ctor'
         .catch(e => t.fail());
 });
 
-test('GET request should resolved specified object when stub provider is used with response', async t => {
+test('GET request should resolve specified object when stub provider is used with response', async t => {
     let response = new PHttpResponse();
     response.status = 200;
     response.statusText = "OK";

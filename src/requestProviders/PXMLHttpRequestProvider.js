@@ -1,13 +1,21 @@
-import { PHttpRequestProvider, PHttpRequest } from '../core/index.js'
+import { PHttpRequestProvider, PHttpRequest } from '../core/index'
+import { PXMLHttpRequestResponseAdapter } from '../responseAdapters/PXMLHttpRequestResponseAdapter'
 
 /**
  * @class
+ * 
  * @constructor
+ * @param {XMLHttpRequest?} - (optional) An XMLHttpRequest.  If not supplied, an xhr will be supplied with default
+ * properties.
  * @public
  */
 export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
     
-    constructor() {
+    constructor(request) {
+        super();
+
+        if (request && !(request instanceof XMLHttpRequest)) throw new Error('');
+
         /**
          * @method
          * @param {PHttpRequestOptions} options - Options for the request
@@ -16,13 +24,14 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
          * @returns {PHttpRequest}
          */
         this.get = (options, resolve, reject) => {
-            const xhr = new XMLHttpRequest();
+            const xhr = request || new XMLHttpRequest();
             xhr.onreadystatechange = function(e) {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        resolve(xhr.response);
+                    let response = new PXMLHttpRequestResponseAdapter(xhr).adapt();
+                    if (response.status === 200) {
+                        resolve(response);
                     } else {
-                        reject(xhr.status);
+                        reject(JSON.stringify(response));
                     }
                 }
             }
@@ -31,7 +40,7 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
             }
             
             return new PXMLHttpRequest(xhr);
-        };   
+        };
     }
 }
 
@@ -56,7 +65,7 @@ export class PXMLHttpRequest extends PHttpRequest {
          * @method
          * @param {PHttpRequestOptions} options options for the request
          * @param {any?} data data to send with the request
-         * @returns {PHttpResponse}
+         * @returns {Promise<>}
          */
         this.send = (options, data) => {
             this.request.open(options.method, options.url, true)

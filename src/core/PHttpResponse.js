@@ -1,13 +1,22 @@
 /**
  * @class
+ * 
  * @constructor
+ * @param {XMLHttpResponse | Response} response - The raw response object to wrap with this PHttpResponse
  * @public
  */
 export default class PHttpResponse {
 
     constructor() {
         /**
-         * @type {number}
+         * @type {XMLHttpResponse | Response}
+         * @description - The raw response object
+         * @public
+         */
+        this.rawResponse = undefined;
+
+        /**
+         * @type {Number}
          * @public
          */
         this.status = undefined;
@@ -18,5 +27,17 @@ export default class PHttpResponse {
          */
         this.statusText = undefined;
 
+        /**
+         * @type {String}
+         * @public
+         */
+        this.url = undefined;
+
+        /**
+         * @type {Boolean}
+         */
+        this.redirected = undefined;
+
+        
     }
 }

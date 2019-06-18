@@ -21,11 +21,12 @@ export default class PHttpClient {
         
         /**
          * @method
-         * @param {string} url The URL for the GET request
-         * @param {number?} timeout The timeout in ms after which the request will be rejected
+         * @param {String} url The URL for the GET request
+         * @param {Number?} timeout The timeout in ms after which the request will be rejected
+         * @param {Object<string,string>?} tokenHeader * An Authorization token to set for the request. e.g. { "Authorization", "tOkEn123" }
          * @returns {Promise<PHttpResponse>}
          */
-        this.get = (url, timeout) => {
+        this.get = (url, timeout, tokenHeader) => {
             let options = new PHttpRequestOptions();
             options.url = url;
             options.timeout = timeout;
