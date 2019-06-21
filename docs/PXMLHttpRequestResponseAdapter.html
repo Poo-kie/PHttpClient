@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: PHttpRequest</title>
+    <title>JSDoc: Class: PXMLHttpRequestResponseAdapter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: PHttpRequest</h1>
+    <h1 class="page-title">Class: PXMLHttpRequestResponseAdapter</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PHttpRequest<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PXMLHttpRequestResponseAdapter<span class="signature">(xhr)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,111 +41,7 @@
     
 
     
-    <h4 class="name" id="PHttpRequest"><span class="type-signature"></span>new PHttpRequest<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_PHttpRequest.js.html">core/PHttpRequest.js</a>, <a href="core_PHttpRequest.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(options, data<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PXMLHttpRequestResponseAdapter"><span class="type-signature"></span>new PXMLHttpRequestResponseAdapter<span class="signature">(xhr)</span><span class="type-signature"></span></h4>
     
 
     
@@ -173,8 +69,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -187,64 +81,23 @@
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>xhr</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="PHttpRequestOptions.html">PHttpRequestOptions</a></span>
+<span class="param-type">XMLHttpRequest</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>options for the request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">any</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-                    &lt;nullable><br>
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>data to send with the request</p></td>
+            <td class="description last"><p>The XMLHttpRequest to create the PHttpResponse from</p></td>
         </tr>
 
     
@@ -285,7 +138,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_PHttpRequest.js.html">core/PHttpRequest.js</a>, <a href="core_PHttpRequest.js.html#line14">line 14</a>
+        <a href="responseAdapters_PXMLHttpRequestResponseAdapter.js.html">responseAdapters/PXMLHttpRequestResponseAdapter.js</a>, <a href="responseAdapters_PXMLHttpRequestResponseAdapter.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -310,6 +163,135 @@
 
 
 
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="PXMLHttpRequestResponseAdapter.html">PXMLHttpRequestResponseAdapter</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="adapt"><span class="type-signature"></span>adapt<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="PHttpResponse.html">PHttpResponse</a>}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="responseAdapters_PXMLHttpRequestResponseAdapter.js.html">responseAdapters/PXMLHttpRequestResponseAdapter.js</a>, <a href="responseAdapters_PXMLHttpRequestResponseAdapter.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="PHttpResponse.html">PHttpResponse</a></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 

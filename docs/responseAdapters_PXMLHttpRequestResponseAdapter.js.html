@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: core/PHttpResponse.js</title>
+    <title>JSDoc: Source: responseAdapters/PXMLHttpRequestResponseAdapter.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: core/PHttpResponse.js</h1>
+    <h1 class="page-title">Source: responseAdapters/PXMLHttpRequestResponseAdapter.js</h1>
 
     
 
@@ -26,47 +26,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>import PHttpResponse from '../core/PHttpResponse'
+
+/**
  * @class
  * 
  * @constructor
- * @param {XMLHttpResponse | Response} response - The raw response object to wrap with this PHttpResponse
+ * @param {XMLHttpRequest} xhr - The XMLHttpRequest to create the PHttpResponse from
  * @public
  */
-export default class PHttpResponse {
-
-    constructor() {
+export class PXMLHttpRequestResponseAdapter extends PHttpResponse {
+    /**
+     * 
+     * @param {XMLHttpRequest} xhr - The XMLHttpRequest to create the PHttpResponse from
+     */
+    constructor(xhr) {
+        super();
         /**
-         * @type {XMLHttpResponse | Response}
-         * @description - The raw response object
+         * @method
          * @public
+         * @returns {PHttpResponse}
          */
-        this.rawResponse = undefined;
+        this.adapt = () => {
+            this.rawResponse = xhr;
 
-        /**
-         * @type {Number}
-         * @public
-         */
-        this.status = undefined;
+            this.status = xhr.status;
+            this.statusText = xhr.statusText;
+            this.url = xhr.responseURL;
+            this.headers = this.processHeaders(xhr.getAllResponseHeaders());
+            
 
-        /**
-         * @type {String}
-         * @public
-         */
-        this.statusText = undefined;
+            return this;
+        };
 
-        /**
-         * @type {String}
-         * @public
-         */
-        this.url = undefined;
+        this.processHeaders = (headers) => {
+            var arr = headers.trim().split(/[\r\n]+/);
 
-        /**
-         * @type {Boolean}
-         */
-        this.redirected = undefined;
+            // Create a map of header names to values
+            var headerMap = {};
+            arr.forEach(function (line) {
+                var parts = line.split(': ');
+                var header = parts.shift();
+                var value = parts.join(': ');
+                headerMap[header] = value;
+            });
 
-        
+            return headerMap;
+        }
     }
 }</code></pre>
         </article>

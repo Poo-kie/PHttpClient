@@ -14,8 +14,6 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
     constructor(request) {
         super();
 
-        if (request && !(request instanceof XMLHttpRequest)) throw new Error('');
-
         /**
          * @method
          * @param {PHttpRequestOptions} options - Options for the request
@@ -26,7 +24,7 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
         this.get = (options, resolve, reject) => {
             const xhr = request || new XMLHttpRequest();
             xhr.onreadystatechange = function(e) {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.readyState === 4) {
                     let response = new PXMLHttpRequestResponseAdapter(xhr).adapt();
                     if (response.status === 200) {
                         resolve(response);
@@ -55,6 +53,8 @@ export class PXMLHttpRequest extends PHttpRequest {
      * @param {XMLHttpRequest} request the request to send
      */
     constructor(request) {
+        super();
+
         /**
          * @type {XMLHttpRequest}
          * @private
@@ -65,7 +65,6 @@ export class PXMLHttpRequest extends PHttpRequest {
          * @method
          * @param {PHttpRequestOptions} options options for the request
          * @param {any?} data data to send with the request
-         * @returns {Promise<>}
          */
         this.send = (options, data) => {
             this.request.open(options.method, options.url, true)

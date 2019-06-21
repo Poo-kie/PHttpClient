@@ -21,7 +21,10 @@
   "author": "James McBride",
   "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "supertest": "^4.0.2",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "ava": "^1.4.1"

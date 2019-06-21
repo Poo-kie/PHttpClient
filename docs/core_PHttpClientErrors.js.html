@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: core/PHttpResponse.js</title>
+    <title>JSDoc: Source: core/PHttpClientErrors.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: core/PHttpResponse.js</h1>
+    <h1 class="page-title">Source: core/PHttpClientErrors.js</h1>
 
     
 
@@ -26,47 +26,23 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>export default class PHttpClientErrors {
+    constructor() {
+        this.incorrectArgumentType = (arg, expectedType) => new PHttpClientError('IncorrectArgumentType', `The argument ${arg} is not of the correct type. Expected ${expectedType}`);
+    }
+}
+
+/**
  * @class
  * 
- * @constructor
- * @param {XMLHttpResponse | Response} response - The raw response object to wrap with this PHttpResponse
- * @public
+ * @param {String} - The error code to associate this error with
+ * @param {String} - The error message used to describe this error
  */
-export default class PHttpResponse {
+class PHttpClientError {
 
-    constructor() {
-        /**
-         * @type {XMLHttpResponse | Response}
-         * @description - The raw response object
-         * @public
-         */
-        this.rawResponse = undefined;
-
-        /**
-         * @type {Number}
-         * @public
-         */
-        this.status = undefined;
-
-        /**
-         * @type {String}
-         * @public
-         */
-        this.statusText = undefined;
-
-        /**
-         * @type {String}
-         * @public
-         */
-        this.url = undefined;
-
-        /**
-         * @type {Boolean}
-         */
-        this.redirected = undefined;
-
-        
+    constructor(errorCode, errorMessage) {
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
     }
 }</code></pre>
         </article>

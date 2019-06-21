@@ -30,7 +30,8 @@ export default class PHttpClient {
             let options = new PHttpRequestOptions();
             options.url = url;
             options.timeout = timeout;
-
+            options.method = "GET";
+            
             return new Promise((resolve, reject) => {
                 let request = this.requestProvider.get(options, resolve, reject);
                 request.send(options);
