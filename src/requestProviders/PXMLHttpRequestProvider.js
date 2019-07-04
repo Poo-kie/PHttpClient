@@ -1,17 +1,24 @@
-import { PHttpRequestProvider, PHttpRequest } from '../core/index'
-import { PXMLHttpRequestResponseAdapter } from '../responseAdapters/PXMLHttpRequestResponseAdapter'
+import { PHttpRequestProvider, PHttpRequest, PHttpResponseValidator } from '../core/index';
+import { PXMLHttpRequestResponseAdapter } from '../responseAdapters/PXMLHttpRequestResponseAdapter';
 
 /**
- * @class
+ * @class {PXMLHttpRequestProvider} PXMLHttpRequestProvider
  * 
  * @constructor
- * @param {XMLHttpRequest?} - (optional) An XMLHttpRequest.  If not supplied, an xhr will be supplied with default
+ * @param {XMLHttpRequest?} request (optional) An XMLHttpRequest.  If not supplied, an xhr will be supplied with default
  * properties.
+ * @param {PHttpResponseValidator?} validator (optional) A response validator.  Implement one for use cases like rejecting
+ * the promise for specific http status codes and such.
  * @public
  */
 export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
     
-    constructor(request) {
+    /**
+     * 
+     * @param {XMLHttpRequest?} request 
+     * @param {PHttpResponseValidator?} validator 
+     */
+    constructor(request, validator) {
         super();
 
         /**
@@ -26,10 +33,24 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
             xhr.onreadystatechange = function(e) {
                 if (xhr.readyState === 4) {
                     let response = new PXMLHttpRequestResponseAdapter(xhr).adapt();
-                    if (response.status === 200) {
+                    if (!validator || validator.isValid(response)) {
                         resolve(response);
                     } else {
-                        reject(JSON.stringify(response));
+                        let cache = [];
+
+                        reject(JSON.stringify(response, function(key, value) {
+                            if (typeof value === 'object' && value !== null) {
+                                if (cache.indexOf(value) !== -1) {
+                                    // Duplicate reference found, discard key
+                                    return;
+                                }
+                                // Store value in our collection
+                                cache.push(value);
+                            }
+                            return value;
+                        }));
+
+                        cache = null;
                     }
                 }
             }

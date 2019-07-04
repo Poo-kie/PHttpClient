@@ -2,23 +2,31 @@ import test from 'ava';
 import express from 'express';
 import { PHttpClient, PHttpResponse } from '../src/core/index';
 import PXMLHttpRequestProvider from '../src/requestProviders/PXMLHttpRequestProvider';
-import * as XHR from 'xmlhttprequest';
+import XMLHttpRequest from 'xhr2';
 
-const app = express();
+let app = express();
+let server = undefined;
 
-app.get('/user', function(req, res) {
-    res.status(200).json({ name: 'john' });
+test.beforeEach(t => {
+    app.get("/test", (req, res) => {
+        res.send("GET test response");
+    });    
+    
+    server = app.listen(3000);
 });
 
-app.listen(3000);
+test.afterEach(t => {
+    server.close();
+});
 
 test('GET should', async t => {
-    let xhr = XHR.XMLHttpRequest;
-    let requestProvider = new PXMLHttpRequestProvider(new xhr());
+    let requestProvider = new PXMLHttpRequestProvider(new XMLHttpRequest());
     let client = new PHttpClient(requestProvider);
 
-    await client.get("http://localhost:3000/user", 2000)
-        .then(r => t.pass())
+    await client.get("http://localhost:3000/test", 2000)
+        .then(r => {
+            t.pass();
+        })
         .catch(e => {
             console.info(e);
             t.fail();

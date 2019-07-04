@@ -15,7 +15,8 @@ export class PXMLHttpRequestResponseAdapter extends PHttpResponse {
     constructor(xhr) {
         super();
         /**
-         * @method
+         * @method 
+         * @description Adapts the response object of a XMLHttpRequest to a PHttpResponse 
          * @public
          * @returns {PHttpResponse}
          */

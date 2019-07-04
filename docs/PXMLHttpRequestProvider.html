@@ -28,7 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PXMLHttpRequestProvider<span class="signature">(request<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PXMLHttpRequestProvider<span class="signature">(request<span class="signature-attributes">nullable</span>, validator<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>{PXMLHttpRequestProvider} PXMLHttpRequestProvider</p></div>
         
     
 </header>
@@ -39,9 +41,11 @@
         
 
     
+    <h2>Constructor</h2>
+    
 
     
-    <h4 class="name" id="PXMLHttpRequestProvider"><span class="type-signature"></span>new PXMLHttpRequestProvider<span class="signature">(request<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PXMLHttpRequestProvider"><span class="type-signature"></span>new PXMLHttpRequestProvider<span class="signature">(request<span class="signature-attributes">nullable</span>, validator<span class="signature-attributes">nullable</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -114,6 +118,40 @@ properties.</p></td>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>validator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="PHttpResponseValidator.html">PHttpResponseValidator</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                    &lt;nullable><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>(optional) A response validator.  Implement one for use cases like rejecting
+the promise for specific http status codes and such.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -151,7 +189,7 @@ properties.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line12">line 12</a>
+        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -188,6 +226,13 @@ properties.</p></td>
 
     
 
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="PXMLHttpRequestProvider_PXMLHttpRequestProvider.html">PXMLHttpRequestProvider</a></dt>
+            <dd></dd>
+        </dl>
     
 
     
@@ -350,7 +395,7 @@ properties.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line24">line 24</a>
+        <a href="requestProviders_PXMLHttpRequestProvider.js.html">requestProviders/PXMLHttpRequestProvider.js</a>, <a href="requestProviders_PXMLHttpRequestProvider.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -414,13 +459,13 @@ properties.</p></td>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="PHttpClient.html">PHttpClient</a></li><li><a href="PHttpClientError.html">PHttpClientError</a></li><li><a href="PHttpRequest.html">PHttpRequest</a></li><li><a href="PHttpRequestOptions.html">PHttpRequestOptions</a></li><li><a href="PHttpRequestProvider.html">PHttpRequestProvider</a></li><li><a href="PHttpResponse.html">PHttpResponse</a></li><li><a href="PStubHttpRequest.html">PStubHttpRequest</a></li><li><a href="PStubHttpRequestProvider.html">PStubHttpRequestProvider</a></li><li><a href="PXMLHttpRequest.html">PXMLHttpRequest</a></li><li><a href="PXMLHttpRequestProvider.html">PXMLHttpRequestProvider</a></li><li><a href="PXMLHttpRequestResponseAdapter.html">PXMLHttpRequestResponseAdapter</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="PHttpClient.html">PHttpClient</a></li><li><a href="PHttpClientError.html">PHttpClientError</a></li><li><a href="PHttpRequest.html">PHttpRequest</a></li><li><a href="PHttpRequestOptions.html">PHttpRequestOptions</a></li><li><a href="PHttpRequestProvider.html">PHttpRequestProvider</a></li><li><a href="PHttpResponse.html">PHttpResponse</a></li><li><a href="PHttpResponseValidator.html">PHttpResponseValidator</a></li><li><a href="PStubHttpRequest.html">PStubHttpRequest</a></li><li><a href="PStubHttpRequestProvider.html">PStubHttpRequestProvider</a></li><li><a href="PXMLHttpRequest.html">PXMLHttpRequest</a></li><li><a href="PXMLHttpRequestProvider.html">PXMLHttpRequestProvider</a></li><li><a href="PXMLHttpRequestProvider_PXMLHttpRequestProvider.html">PXMLHttpRequestProvider</a></li><li><a href="PXMLHttpRequestResponseAdapter.html">PXMLHttpRequestResponseAdapter</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Fri Jun 21 2019 07:46:44 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Sun Jun 23 2019 09:10:00 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

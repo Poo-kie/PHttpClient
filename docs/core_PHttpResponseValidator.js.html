@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: core/PHttpRequestOptions.js</title>
+    <title>JSDoc: Source: core/PHttpResponseValidator.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: core/PHttpRequestOptions.js</h1>
+    <h1 class="page-title">Source: core/PHttpResponseValidator.js</h1>
 
     
 
@@ -27,43 +27,24 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @class
+ * @class PHttpResponseValidator implement and pass to {@link PHttpRequestProvider} for 
+ * resolve/reject 
+ * of promises
  * @constructor
  * @public
  */
-export default class PHttpRequestOptions {
-
+export default class PHttpResponseValidator {
     constructor() {
         /**
-         * DELETE, GET, PATCH, POST, PUT
-         * @type {String}
-         * @public
+         * @method
+         * @param {PHttpResponse} response The response to validate
+         * @returns {Boolean} True if the response is valid; otherwise, false.
          */
-        this.method = undefined;
-
-        /**
-         * The url for the request
-         * @type {String} 
-         * @public
-         */
-        this.url = undefined;
-
-        /**
-         * The timeout (in ms) after which the request will be rejected
-         * @type {Number?}
-         * @public
-         */
-        this.timeout = undefined;    
-
-        /**
-         * An Authorization token to set for the request
-         * e.g. { "Authorization", "tOkEn123" }
-         * @type {Object.&lt;String,String>?}
-         * @public
-         */
-        this.tokenHeader = undefined;
+        this.isValid = (response) => {
+            throw new Error("not implemented.");
+        };
     }
-}   </code></pre>
+}</code></pre>
         </article>
     </section>
 

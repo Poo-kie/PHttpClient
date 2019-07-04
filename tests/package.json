@@ -24,7 +24,7 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "supertest": "^4.0.2",
-    "xmlhttprequest": "^1.8.0"
+    "xhr2": "^0.2.0"
   },
   "devDependencies": {
     "ava": "^1.4.1"
