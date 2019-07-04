@@ -1,7 +1,7 @@
 import PHttpResponseAttrValidator from './PHttpResponseAttrValidator'
 
 /**
- * @class PHttpResponseValidator implement and pass to {@link PHttpRequestProvider} for 
+ * @class PHttpResponseValidator add validators and pass to {@link PHttpRequestProvider} for 
  * resolve/reject 
  * of promises
  * @constructor

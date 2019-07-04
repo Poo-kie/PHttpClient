@@ -1,5 +1,5 @@
 /**
- * @class PHttpResponseAttrValidator implement and pass to {@link PHttpRequestProvider} for 
+ * @class PHttpResponseAttrValidator implement and pass to {@link PHttpResponseValidator} for 
  * resolve/reject 
  * of promises
  * @constructor

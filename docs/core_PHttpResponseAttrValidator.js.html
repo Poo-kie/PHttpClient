@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: core/PHttpResponse.js</title>
+    <title>JSDoc: Source: core/PHttpResponseAttrValidator.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: core/PHttpResponse.js</h1>
+    <h1 class="page-title">Source: core/PHttpResponseAttrValidator.js</h1>
 
     
 
@@ -27,46 +27,22 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @class
- * 
+ * @class PHttpResponseAttrValidator implement and pass to {@link PHttpResponseValidator} for 
+ * resolve/reject 
+ * of promises
  * @constructor
- * @param {XMLHttpResponse | Response} response - The raw response object to wrap with this PHttpResponse
  * @public
  */
-export default class PHttpResponse {
-
+export default class PHttpResponseAttrValidator {
     constructor() {
         /**
-         * @type {XMLHttpResponse | Response}
-         * @description - The raw response object
-         * @public
+         * @method
+         * @param {PHttpResponse} response The response to validate
+         * @returns {Boolean} True if the response is valid; otherwise, false.
          */
-        this.rawResponse = undefined;
-
-        /**
-         * @type {Number}
-         * @public
-         */
-        this.status = undefined;
-
-        /**
-         * @type {String}
-         * @public
-         */
-        this.statusText = undefined;
-
-        /**
-         * @type {String}
-         * @public
-         */
-        this.url = undefined;
-
-        /**
-         * @type {Boolean}
-         */
-        this.redirected = undefined;
-
-        
+        this.isValid = (response) => {
+            throw new Error("not implemented.");
+        };
     }
 }</code></pre>
         </article>
