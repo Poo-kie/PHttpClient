@@ -1,5 +1,6 @@
 import { PHttpRequestProvider, PHttpRequest, PHttpResponseValidator } from '../core/index';
 import { PXMLHttpRequestResponseAdapter } from '../responseAdapters/PXMLHttpRequestResponseAdapter';
+import { PHttpResponseSerializer } from '../core/PHttpResponseSerializer';
 
 /**
  * @class {PXMLHttpRequestProvider} PXMLHttpRequestProvider
@@ -30,27 +31,15 @@ export default class PXMLHttpRequestProvider extends PHttpRequestProvider {
          */
         this.get = (options, resolve, reject) => {
             const xhr = request || new XMLHttpRequest();
+            
             xhr.onreadystatechange = function(e) {
                 if (xhr.readyState === 4) {
                     let response = new PXMLHttpRequestResponseAdapter(xhr).adapt();
                     if (!validator || validator.isValid(response)) {
                         resolve(response);
                     } else {
-                        let cache = [];
-
-                        reject(JSON.stringify(response, function(key, value) {
-                            if (typeof value === 'object' && value !== null) {
-                                if (cache.indexOf(value) !== -1) {
-                                    // Duplicate reference found, discard key
-                                    return;
-                                }
-                                // Store value in our collection
-                                cache.push(value);
-                            }
-                            return value;
-                        }));
-
-                        cache = null;
+                        let serializer = new PHttpResponseSerializer();
+                        reject(serializer.serialize(response));
                     }
                 }
             }
