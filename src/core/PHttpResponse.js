@@ -38,6 +38,14 @@ export default class PHttpResponse {
          */
         this.redirected = undefined;
 
-        
+        /**
+         * @type {any}
+         */
+        this.response = undefined;
+
+        /**
+         * @type {String}
+         */
+        this.responseText = undefined;
     }
 }

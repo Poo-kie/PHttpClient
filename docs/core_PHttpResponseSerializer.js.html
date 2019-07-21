@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: responseAdapters/PXMLHttpRequestResponseAdapter.js</title>
+    <title>JSDoc: Source: core/PHttpResponseSerializer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: responseAdapters/PXMLHttpRequestResponseAdapter.js</h1>
+    <h1 class="page-title">Source: core/PHttpResponseSerializer.js</h1>
 
     
 
@@ -26,55 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PHttpResponse from '../core/PHttpResponse'
-
-/**
- * @class
- * 
+            <pre class="prettyprint source linenums"><code>/**
+ * @class PHttpResponseSerializer
  * @constructor
- * @param {XMLHttpRequest} xhr - The XMLHttpRequest to create the PHttpResponse from
  * @public
  */
-export class PXMLHttpRequestResponseAdapter extends PHttpResponse {
-    /**
-     * 
-     * @param {XMLHttpRequest} xhr - The XMLHttpRequest to create the PHttpResponse from
-     */
-    constructor(xhr) {
-        super();
+export class PHttpResponseSerializer {
+    
+    constructor() {
+
         /**
-         * @method 
-         * @description Adapts the response object of a XMLHttpRequest to a PHttpResponse 
+         * @method
+         * @param {PHttpResponse} response an http response
+         * @returns {String} a serialized json response
          * @public
-         * @returns {PHttpResponse}
          */
-        this.adapt = () => {
-            this.rawResponse = xhr;
-
-            this.status = xhr.status;
-            this.statusText = xhr.statusText;
-            this.url = xhr.responseURL;
-            this.headers = this.processHeaders(xhr.getAllResponseHeaders());
-            this.response = xhr.response;
-            this.responseText = xhr.responseText;
-
-            return this;
-        };
-
-        this.processHeaders = (headers) => {
-            var arr = headers.trim().split(/[\r\n]+/);
-
-            // Create a map of header names to values
-            var headerMap = {};
-            arr.forEach(function (line) {
-                var parts = line.split(': ');
-                var header = parts.shift();
-                var value = parts.join(': ');
-                headerMap[header] = value;
+        this.serialize = (response) => {
+            let cache = [];
+            
+            let retVal = JSON.stringify(response, function(key, value) {
+                if (typeof value === 'object' &amp;&amp; value !== null) {
+                    if (cache.indexOf(value) !== -1) {
+                        // Duplicate reference found, discard key
+                        return;
+                    }
+                    // Store value in our collection
+                    cache.push(value);
+                }
+                return value;
             });
 
-            return headerMap;
-        }
+            cache = null;
+            return retVal;
+        };
     }
 }</code></pre>
         </article>

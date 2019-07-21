@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: PHttpClientError</title>
+    <title>JSDoc: Class: PHttpResponseSerializer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: PHttpClientError</h1>
+    <h1 class="page-title">Class: PHttpResponseSerializer</h1>
 
     
 
@@ -28,7 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PHttpClientError<span class="signature">(errorCode, errorMessage)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>PHttpResponseSerializer<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>PHttpResponseSerializer</p></div>
         
     
 </header>
@@ -39,9 +41,122 @@
         
 
     
+    <h2>Constructor</h2>
+    
 
     
-    <h4 class="name" id="PHttpClientError"><span class="type-signature"></span>new PHttpClientError<span class="signature">(errorCode, errorMessage)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="PHttpResponseSerializer"><span class="type-signature"></span>new PHttpResponseSerializer<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="core_PHttpResponseSerializer.js.html">core/PHttpResponseSerializer.js</a>, <a href="core_PHttpResponseSerializer.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="PHttpResponseSerializer.html">PHttpResponseSerializer</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="serialize"><span class="type-signature"></span>serialize<span class="signature">(response)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
 
     
@@ -81,13 +196,13 @@
 
         <tr>
             
-                <td class="name"><code>errorCode</code></td>
+                <td class="name"><code>response</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><a href="PHttpResponse.html">PHttpResponse</a></span>
 
 
             
@@ -97,30 +212,7 @@
 
             
 
-            <td class="description last"><p>The error code to associate this error with</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>errorMessage</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The error message used to describe this error</p></td>
+            <td class="description last"><p>an http response</p></td>
         </tr>
 
     
@@ -161,7 +253,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_PHttpClientErrors.js.html">core/PHttpClientErrors.js</a>, <a href="core_PHttpClientErrors.js.html#line15">line 15</a>
+        <a href="core_PHttpResponseSerializer.js.html">core/PHttpResponseSerializer.js</a>, <a href="core_PHttpResponseSerializer.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -186,28 +278,34 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>a serialized json response</p>
+</div>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
 
+
+    </dd>
+</dl>
 
     
-    </div>
 
-    
 
-    
 
-    
 
-    
 
-    
-
-    
-
-    
-
+        
     
 
     

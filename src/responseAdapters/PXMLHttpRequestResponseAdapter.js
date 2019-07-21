@@ -27,7 +27,8 @@ export class PXMLHttpRequestResponseAdapter extends PHttpResponse {
             this.statusText = xhr.statusText;
             this.url = xhr.responseURL;
             this.headers = this.processHeaders(xhr.getAllResponseHeaders());
-            
+            this.response = xhr.response;
+            this.responseText = xhr.responseText;
 
             return this;
         };

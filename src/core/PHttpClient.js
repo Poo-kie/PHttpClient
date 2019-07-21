@@ -37,5 +37,25 @@ export default class PHttpClient {
                 request.send(options);
             });
         };
+
+        /**
+         * @method
+         * @param {String} url The URL for the POST request
+         * @param {Number?} timeout The timeout in ms after which the request will be rejected
+         * @param {Object} body The body of the request
+         * @param {Object<string,string>?} tokenHeader * An Authorization token to set for the request. e.g. { "Authorization", "tOkEn123" }
+         * @returns {Promise<PHttpResponse>}
+         */
+        this.post = (url, timeout, body, tokenHeader) => {
+            let options = new PHttpRequestOptions();
+            options.url = url;
+            options.timeout = timeout;
+            options.method = "POST";
+            
+            return new Promise((resolve, reject) => {
+                let request = this.requestProvider.get(options, resolve, reject);
+                request.send(options, body);
+            });
+        };
     }
 };
